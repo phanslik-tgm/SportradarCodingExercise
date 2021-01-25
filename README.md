@@ -12,5 +12,3 @@ index.php zeigt alle Event-Einträge in einer Tabelle an.
 ## search.php
 In search.php kann man nach Sportarten filtern. Dazu gibt man die gesuchte Sportart in das Suchfeld ein und bekommt eine Liste aller Events dieser Sportart.
 ![alt text](search.png "search.php")
-
-## Erweiterungen
