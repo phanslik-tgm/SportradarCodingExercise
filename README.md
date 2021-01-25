@@ -1,4 +1,4 @@
 # SportradarCodingExercise
-Getestet habe ich das ganze auf eine Ubuntu-Serve VM
+Getestet habe ich das ganze auf einer Ubuntu-Server VM
 * Webbrowser: Apache2
 * Database:   Mysql
