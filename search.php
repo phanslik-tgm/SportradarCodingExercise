@@ -1,3 +1,10 @@
+
+<h1>Suche nach Sportart</h1>
+<form action="" method="post">
+<input type="text" name="search">
+<input type="submit" name="submit" value="Search">
+</form>
+
 <?php
 
 include 'connect.php';
@@ -8,12 +15,15 @@ try
 
   $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   echo 'DB connected';
-  echo '<br><a href="search.php">Search</a>';
 
+  $search_value=$_POST["search"];
 
-  $query = "SELECT * FROM Event";
+ // echo ''.$search_value;	// gibt die eingabe im suchfeld aus
 
-  $data = $connect->query($query);
+// suche nach Anderen Attributen kann leicht erweitert werden, durch ändern/erweitern der query oder der Auswahl an verschiedenen suchfeldern für verschiedene Attribute
+  $query="select * from Event where Sport like '%$search_value%'";
+
+       $data = $connect->query($query);
 
   echo '
         <table width"70%" border="1" cellpadding="5" cellspacing="5">
@@ -38,9 +48,12 @@ try
   }
 
   echo '</table>';
+
 }
 catch(PDOException $error)
 {
   $error->getMessage();
 }
- ?>
+
+
+?>
