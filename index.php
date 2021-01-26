@@ -4,16 +4,15 @@ include 'connect.php';
 
 try
 {
-  $connect = new PDO("mysql:host=$host;dbname=$database", $username, $password);
-
-  $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo 'DB connected';
-  echo '<br><a href="search.php">Search</a>';
-
+  
+  $connection = new ConnectDB();
+  $connect = $connection->connect();
 
   $query = "SELECT * FROM Event";
 
   $data = $connect->query($query);
+
+  echo '<br><a href="search.php">Search</a>';
 
   echo '
         <table width"70%" border="1" cellpadding="5" cellspacing="5">

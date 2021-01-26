@@ -11,19 +11,18 @@ include 'connect.php';
 
 try
 {
-  $connect = new PDO("mysql:host=$host;dbname=$database", $username, $password);
 
-  $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo 'DB connected';
+  $connection = new ConnectDB();
+  $connect = $connection->connect();
 
   $search_value=$_POST["search"];
 
- // echo ''.$search_value;	// gibt die eingabe im suchfeld aus
+ // echo ''.$search_value;	// gibt die eingabe im suchfeld zum testen aus
 
 // suche nach Anderen Attributen kann leicht erweitert werden, durch ändern/erweitern der query oder der Auswahl an verschiedenen suchfeldern für verschiedene Attribute
   $query="select * from Event where Sport like '%$search_value%'";
 
-       $data = $connect->query($query);
+  $data = $connect->query($query);
 
   echo '
         <table width"70%" border="1" cellpadding="5" cellspacing="5">
