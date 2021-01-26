@@ -27,7 +27,6 @@ CREATE TABLE Sport (
   PRIMARY KEY (SportID)
 );
 
--- TODO ??? ich könnte dem Team auch die SportID als foreignKey mitgeben und sie aus dem event entfernen
 CREATE TABLE Team (
   TeamID INT AUTO_INCREMENT,
   TeamName VARCHAR(255),
